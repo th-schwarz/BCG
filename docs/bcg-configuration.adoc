@@ -36,6 +36,7 @@ event:
 - `bcg.calendar-dir`: The directory store the files of the birthday event.
 - `bdg.vdirsyncer-config`: The config file of _vdirsyncer_.
 - `bcg.vdirsyncer-status-dir`: The status directory of _vdirsyncer_.
+- `bcg.clean-config-file`: If this file exists all the generated configuration and setup will be recreated.
 - `bcg.run-on-start`: The creation of the birthday calendar will be triggered directly at the start of the service.
 
 === Individual settings

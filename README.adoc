@@ -25,6 +25,9 @@ I’m not responsible for any data loss, hardware damage or broken keyboards. Th
 
 == Setup & Configuration
 
+Currently, the handling of the calendar is done by the great commandline program https://github.com/pimutils/vdirsyncer[vdirsyncer]. It must be installed on your system. +
+It is planned to implement this in java, help is welcome!!!
+
 === File Structure
 
 Here is the suggested file structure:
@@ -32,9 +35,24 @@ Here is the suggested file structure:
 [source,bash]
 ----
 ├── /opt/bcg
-│   ├── bcg.yml    (individuial configuration)
+│   ├── bcg.yml    (individual configuration)
 │   ├── bcg-0.1.0.jar
 │   ├── bcg.jar -> bcg-0.1.0.jar
 │   ├── logback.xml    (logback configuration)
 ----
-*bcg.yml* defines the individual properties. The file is read by default and will be merged with the default properties in the classpath, therefore the file can be kept as small as possible. A minimal configuration example can be found further below. If the file is inside the working directory, it is loaded automatically.
+*bcg.yml* defines the individual properties. The file is read by default and will be merged with the default properties in the classpath, therefore the file can be kept as small as possible. A minimal configuration example can be found further below. If the file is inside the working directory, it is loaded automatically.  +
+The complete configuration settings can be found link:docs/bcg-configuration.adoc[here].
+
+=== Minimal configuration example
+
+The most mandatory individual configuration concerns the dav setting. These should be self-explanatory. An example for your individual properties file `bcg.yml`:
+
+[source,yaml]
+----
+dav:
+  user: dev
+  password: strong
+  dav-path: SOGo/dav
+  cal-url: https://dav.my-domain.org/SOGo/dav/dav-user/Calendar/46-12345678-5-87654321/
+  card-url: https://dav.my-domain.org/SOGo/dav/dav-user/Contacts/personal/
+----
