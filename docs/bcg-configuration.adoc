@@ -1,0 +1,51 @@
+:source-highlighter: highlightjs
+:highlightjs-languages: yaml
+:toc:
+:toc-title:
+
+= BCG Configuration
+
+== Default settings
+
+BCG has a lot of configuration settings. Most of them has default settings, but they can be overwritten by the individual configuration file.
+
+Below all default settings are listed.
+
+[source,yaml]
+// include is disabled on github
+// application.yml 2024-11
+----
+bcg:
+  product: BirthdayCalendarGenerator
+  calendar-category: Birthday
+  calendar-dir: cal
+  vdirsyncer-config: vdirsyncer.config
+  vdirsyncer-status-dir: vdirsyncer-status
+  clean-config-file: clean
+  run-on-start: true
+  cron: "0 30 4 * * SUN"
+
+event:
+  summary: "🎂 ~first-name~ ~last-name~"
+  description: "Birthday: ~birthday~"
+  date-format: yyyy-MM-dd
+----
+
+- `bcg.product`: Name of the product used in the created calendar files.
+- `bcg.calendar-category`: The category of the birthday event.
+- `bcg.calendar-dir`: The directory store the files of the birthday event.
+- `bdg.vdirsyncer-config`: The config file of _vdirsyncer_.
+- `bcg.vdirsyncer-status-dir`: The status directory of _vdirsyncer_.
+- `bcg.run-on-start`: The creation of the birthday calendar will be triggered directly at the start of the service.
+
+=== Individual settings
+
+[source,yaml]
+----
+dav:
+  user: dev
+  password: strong
+  dav-path: SOGo/dav
+  cal-url: https://dav.my-domain.org/SOGo/dav/dav-user/Calendar/46-12345678-5-87654321/
+  card-url: https://dav.my-domain.org/SOGo/dav/dav-user/Contacts/personal/
+----
